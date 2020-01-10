@@ -1,0 +1,3 @@
+asset 'angular', '~> 1.5'
+resolution 'angular', '1.5'
+asset 'bootstrap'

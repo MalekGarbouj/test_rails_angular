@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>AngularJS</h1>
+    <p>by Malek</p>
+  </div>
+  <div ng-controller="EventsCtrl">
+    <div class="row">
+      <div class="col-md-4">
+        <input type="text" id="search" class="form-control" ng-model="search" placeholder="Type search phrase here..." />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="col-md-3">Name</th>
+              <th class="col-md-2">Date</th>
+              <th class="col-md-3">Place</th>
+              <th class="col-md-4">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="event in events | filter : search">
+              <td>{{event.name}}</td>
+              <td>{{event.event_date}}</td>
+              <td>{{event.place}}</td>
+              <td>{{event.description}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
