@@ -1,0 +1,16 @@
+/*
+ *= require bootstrap/dist/css/bootstrap
+ *= require_self
+ */
+
+/*.container {
+  margin-top: -20px;
+}*/
+
+.form-control {
+  padding: 6px 6px 6px 6px !important;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
