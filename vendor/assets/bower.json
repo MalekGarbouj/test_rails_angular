@@ -1,11 +1,8 @@
 {
   "name": "dsl-generated-dependencies",
   "dependencies": {
-    "angular": "~> 1.5",
+    "angular": "latest",
     "angular-resource": "latest",
     "bootstrap": "latest"
-  },
-  "resolutions": {
-    "angular": "1.5"
   }
 }

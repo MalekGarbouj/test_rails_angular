@@ -3,25 +3,9 @@
     <h1>AngularJS</h1>
     <p>by Malek</p>
   </div>
-  <div class="row" ng-controller="EventsCtrl">
-    <div class="col-md-12">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th class="col-md-3">Name</th>
-            <th class="col-md-2">Date</th>
-            <th class="col-md-3">Place</th>
-            <th class="col-md-4">Description</th>
-            <th class="col-md-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-         <tr ng-repeat="event in events" ng-include="toggleForm(event)"></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
- <div class="row">
+  
+  <div ng-controller="EventsCtrl">
+    <div class="row">
       <div class="col-md-4">
         <input ng-change="filterEvents()" type="text" id="search" class="form-control" ng-model="search" placeholder="Type search phrase here..." />
       </div>
@@ -43,8 +27,37 @@
         </form>
       </div>
     </div>
-</div>
-<script type="text/ng-template" id="form">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th ng-click="sortEvents('name', sorting.order)" ng-class="sorting.sort_by == 'name' ? 'text-underline' : ''" class="col-md-3">
+                Name
+                <span ng-if="sorting.sort_by == 'name'" class="glyphicon glyphicon-chevron-{{order}}" aria-hidden="true"></span>
+              </th>
+              <th ng-click="sortEvents('event_date', sorting.order)" ng-class="sorting.sort_by == 'event_date' ? 'text-underline' : ''" class="col-md-2">
+                Date
+                <span ng-if="sorting.sort_by == 'event_date'" class="glyphicon glyphicon-chevron-{{order}}" aria-hidden="true"></span>
+              </th>
+              <th ng-click="sortEvents('place', sorting.order)" ng-class="sorting.sort_by == 'place' ? 'text-underline' : ''" class="col-md-2">
+                Place
+                <span ng-if="sorting.sort_by == 'place'" class="glyphicon glyphicon-chevron-{{order}}" aria-hidden="true"></span>
+              </th>
+              <th ng-click="sortEvents('description', sorting.order)" ng-class="sorting.sort_by == 'description' ? 'text-underline' :''" class="col-md-3">
+                Description
+                <span ng-if="sorting.sort_by == 'description'" class="glyphicon glyphicon-chevron-{{order}}" aria-hidden="true"></span>
+              </th>
+              <th class="col-md-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="event in events" ng-include="toggleForm(event)"></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script type="text/ng-template" id="form">
       <td>
         <input ng-model="editing.name" type="text" class="form-control" name="name" />
       </td>
@@ -77,7 +90,10 @@
       </td>
       <td>
         <button ng-click="editEvent(event)" class="btn btn-primary btn-xs">Edit</button>
+        <button ng-click="destroyEvent(event, $index)" class="btn btn-danger btn-xs">Destroy</button>
       </td>
     </script>
   </div>
-</div> 
+</div>
+
+

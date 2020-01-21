@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  event_date: 2020-01-10
+  event_date: 2016-10-09
   description: MyText
   place: MyString
 
 two:
   name: MyString
-  event_date: 2020-01-10
+  event_date: 2016-10-09
   description: MyText
   place: MyString
