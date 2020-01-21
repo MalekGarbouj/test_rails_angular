@@ -77,13 +77,13 @@
     </script>
     <script type="text/ng-template" id="row">
       <td>
-        <span>{{event.name}}</span>
+        <button type="button" class="btn btn-link" ng-click="clicked(event)">{{event.name}}</button>
       </td>
       <td>
         <span>{{event.event_date}}</span>
       </td>
       <td>
-        <span>{{event.place}}</span>
+        <span>{{event.place}}</span></a>
       </td>
       <td>
         <span>{{event.description}}</span>

@@ -1,5 +1,6 @@
 var app = angular.module('angularExample');
 
+
 app.controller('EventsCtrl', ['$scope', 'Event', function($scope, Event) {
   $scope.events = Event.query();
   $scope.editing = {};
@@ -7,6 +8,12 @@ app.controller('EventsCtrl', ['$scope', 'Event', function($scope, Event) {
     sort_by: 'name',
     order: 'asc'
   }
+
+  $scope.clicked = function(){
+
+    alert("hello ");
+}
+
 
   $scope.addEvent = function() {
     if (!valid()) { return false; }
@@ -67,6 +74,7 @@ app.controller('EventsCtrl', ['$scope', 'Event', function($scope, Event) {
       }
     );
   };
+
 
   $scope.sortEvents = function(sort_by, order) {
     if ($scope.sorting.sort_by == sort_by) {
