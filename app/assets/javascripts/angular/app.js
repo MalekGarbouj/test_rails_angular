@@ -1,1 +1,1 @@
-var app = angular.module('angularExample', ['ngResource']);
+var app = angular.module('angularExample', ['ngResource','ngRoute']);

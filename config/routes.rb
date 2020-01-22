@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'dashboard#index'
-
+  get 'dashboard/accueil'
   namespace :api do
     resources :events, only: [:index, :create, :update, :destroy] do
       collection do

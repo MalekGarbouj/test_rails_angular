@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-view>
   <div class="jumbotron">
     <h1>AngularJS</h1>
     <p>by Malek</p>
@@ -23,7 +23,7 @@
           <div class="form-group">
             <input type="text" class="form-control" name="description" placeholder="Description" ng-model="event.description" />
           </div>
-          <button type="submit" class="btn btn-primary">Add</button>
+          <button type="submit" class="btn btn-success">Add</button>
         </form>
       </div>
     </div>
@@ -77,7 +77,7 @@
     </script>
     <script type="text/ng-template" id="row">
       <td>
-        <span>{{event.name}}</span>
+        <a href="#!accueil">{{event.name}}</a>
       </td>
       <td>
         <span>{{event.event_date}}</span>
@@ -95,5 +95,9 @@
     </script>
   </div>
 </div>
+
+<div ng-guru=""></div>
+
+
 
 

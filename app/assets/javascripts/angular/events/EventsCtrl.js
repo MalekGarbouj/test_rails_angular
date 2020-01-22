@@ -1,6 +1,6 @@
 var app = angular.module('angularExample');
 
-app.controller('EventsCtrl', ['$scope', 'Event', function($scope, Event) {
+app.controller('EventsCtrl', ['$scope','$location', 'Event', function($scope,$location, Event) {
   $scope.events = Event.query();
   $scope.editing = {};
   $scope.sorting = {
@@ -95,12 +95,35 @@ app.controller('EventsCtrl', ['$scope', 'Event', function($scope, Event) {
     $scope.updateArrowOrder();
   });
 
+  $scope.show = function(){
+    $location.path("dashboard/accueil");  
+  };
+
   valid = function() {
     return !!$scope.event &&
       !!$scope.event.name && !!$scope.event.event_date &&
       !!$scope.event.description && !!$scope.event.place;
   }
-  
 }]);
 
+app.config(function($routeProvider) {
+  $routeProvider
+  .when("/", {
+    templateUrl : "dashboard/index.html.erb",
+    controller: 'EventsCtrl'
+  })
+  .when("/accueil", {
+    templateUrl : "dashboard/accueil.html.erb",
+    controller: 'EventsCtrl'
+  })
+  .otherwise({
+    redirectTo: '/'
+  });
+});
 
+app.directive('ngGuru',function(){
+
+  return {
+      template: '<h1><div class="tuto">Angular JS Tutorial</div></h1>'
+  }
+});
